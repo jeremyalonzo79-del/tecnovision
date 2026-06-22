@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligencia Artificial | Tecno Visión Hibueras</title>
+    <style>
+        /* --- CONFIGURACIÓN GLOBAL --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #f7f9fa;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* --- CABECERA (HEADER) --- */
+        header {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 4px solid #0284c7;
+        }
+
+        .fecha {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .subtitulo {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* --- MENÚ DE NAVEGACIÓN --- */
+        nav {
+            background-color: #1e293b;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 10px 18px;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffffff;
+            background-color: #0284c7;
+            border-radius: 4px;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 2.8fr 1.2fr;
+            gap: 35px;
+            padding: 0 20px;
+        }
+
+        /* --- ARTÍCULO DE INVESTIGACIÓN --- */
+        .articulo-ia {
+            background-color: #ffffff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .tag-ia {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.2;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .autor-fecha {
+            font-size: 0.85rem;
+            color: #64748b;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .imagen-destacada {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .cuerpo-articulo p {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .cuerpo-articulo h2 {
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin: 30px 0 15px 0;
+        }
+
+        /* --- CUADRO DE DESTACADOS / OPINIÓN --- */
+        blockquote {
+            background-color: #f8fafc;
+            border-left: 5px solid #0284c7;
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #1e293b;
+            font-size: 1.1rem;
+        }
+
+        /* --- BARRA LATERAL (BENEFICIOS Y RECURSOS) --- */
+        aside {
+            height: fit-content;
+        }
+
+        .bloque-lateral {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .bloque-lateral h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: #0f172a;
+            border-bottom: 3px solid #0284c7;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .lista-beneficios-ia {
+            list-style: none;
+        }
+
+        .lista-beneficios-ia li {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .lista-beneficios-ia li::before {
+            content: "✔";
+            color: #10b981;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 4px solid #0284c7;
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .imagen-destacada {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <div class="fecha">Domingo, 21 de Junio de 2026</div>
+        <div class="logo">Tecno Visión Hibueras</div>
+        <div class="subtitulo">Periodismo juvenil, tecnológico e independiente</div>
+    </header>
+
+    <!-- NAVEGACIÓN (Notar la clase 'active' ahora en Inteligencia Artificial) -->
+    <nav>
+        <div class="nav-container">
+            <a href="Tecno_visión_Hibueras.html">Inicio</a>
+            <a href="Inteligencia_Artificial.html" class="active">Inteligencia Artificial</a>
+            <a href="robotica.html">Robótica</a>
+            <a href="videojuegos.html">Videojuegos</a>
+            <a href="bachillerato.html">Bachillerato en Informática</a>
+        </div>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="container">
+        
+        <!-- COLUMNA IZQUIERDA: REPORTAJE ESPECIAL -->
+        <main class="articulo-ia">
+            <span class="tag-ia">Reportaje Especial</span>
+            <h1>La revolución de la Inteligencia Artificial: Desafíos y horizontes éticos</h1>
+            <div class="autor-fecha">Por: Equipo de Redacción de Tecno Visión &bull; Publicado el 21 de Junio de 2026</div>
+            
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1100&q=80" alt="Cerebro digital IA" class="imagen-destacada">
+            
+            <div class="cuerpo-articulo">
+                <p>
+                    La Inteligencia Artificial (IA) ha dejado de ser una simple fantasía extraída de los libros de ciencia ficción para convertirse en el motor tecnológico más potente de nuestra era. En la actualidad, los sistemas basados en redes neuronales profundas y procesamiento de lenguaje natural están reconfigurando la manera en que los seres humanos nos comunicamos, trabajamos y aprendemos.
+                </p>
+
+                <h2>El impacto de la IA en la Educación del Mañana</h2>
+                <p>
+                    Uno de los debates más intensos ocurre dentro del ámbito educativo. Lejos de ser una herramienta para evitar el esfuerzo intelectual, plataformas inteligentes están funcionando como tutores personalizados de veinticuatro horas. La IA tiene la capacidad de detectar los ritmos de aprendizaje de cada estudiante, ofreciendo explicaciones adaptadas a sus necesidades específicas y facilitando herramientas visuales o interactivas instantáneas.
+                </p>
+
+                <blockquote>
+                    "La inteligencia artificial no reemplazará el pensamiento crítico de los estudiantes, sino que exigirá que aprendamos a formular mejores preguntas." — Observatorio Tecnológico Hibueras.
+                </blockquote>
+
+                <h2>Grandes Beneficios de la IA para la Sociedad</h2>
+                <p>
+                    Más allá de las aplicaciones cotidianas, el verdadero valor de la IA reside en su capacidad para procesar cantidades masivas de datos en fracciones de segundo. En la medicina, está ayudando a diagnosticar enfermedades complejas con años de anticipación; en el ámbito ecológico, optimiza el uso de recursos energéticos y predice modelos de cambio climático con una precisión matemática asombrosa.
+                </p>
+
+                <h2>Desafíos Éticos y Seguridad</h2>
+                <p>
+                    No obstante, este avance acelerado trae consigo importantes interrogantes. El sesgo algorítmico, la privacidad de los datos personales y el reemplazo automatizado de puestos de trabajo tradicionales son tópicos urgentes que las nuevas generaciones de informáticos deben resolver. El reto no radica en frenar el desarrollo tecnológico, sino en asegurar que la IA crezca bajo directrices éticas firmes que prioricen el bienestar humano.
+                </p>
+            </div>
+        </main>
+
+        <!-- COLUMNA DERECHA: INFORMACIÓN COMPLEMENTARIA -->
+        <aside>
+            <div class="bloque-lateral">
+                <h3>Beneficios Clave de la IA</h3>
+                <ul class="lista-beneficios-ia">
+                    <li><strong>Procesamiento Masivo:</strong> Analiza millones de datos en segundos para encontrar patrones invisibles al ojo humano.</li>
+                    <li><strong>Medicina de Precisión:</strong> Descubrimiento acelerado de nuevos medicamentos y tratamientos personalizados.</li>
+                    <li><strong>Automatización inteligente:</strong> Libera a los humanos de tareas monótonas para enfocarse en la estrategia y la creatividad.</li>
+                    <li><strong>Sostenibilidad Ambiental:</strong> Optimización de cultivos agrícolas y control de redes de energía limpia.</li>
+                </ul>
+            </div>
+
+            <div class="bloque-lateral">
+                <h3>Conceptos Clave</h3>
+                <p style="font-size: 0.9rem; color: #475569; margin-bottom: 10px;">
+                    <strong>Machine Learning:</strong> Capacidad de las máquinas de aprender de manera autónoma a través del análisis de datos sin ser programadas explícitamente.
+                </p>
+                <p style="font-size: 0.9rem; color: #475569;">
+                    <strong>IA Generativa:</strong> Sistemas entrenados para crear contenidos originales como textos, imágenes, códigos informáticos o música.
+                </p>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 Tecno Visión Hibueras. Periodismo escolar, técnico e informativo. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

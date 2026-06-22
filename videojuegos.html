@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videojuegos y Desarrollo | Tecno Visión Hibueras</title>
+    <style>
+        /* --- CONFIGURACIÓN GLOBAL --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #f7f9fa;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* --- CABECERA (HEADER) --- */
+        header {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 4px solid #0284c7;
+        }
+
+        .fecha {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .subtitulo {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* --- MENÚ DE NAVEGACIÓN --- */
+        nav {
+            background-color: #1e293b;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 10px 18px;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffffff;
+            background-color: #0284c7;
+            border-radius: 4px;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 2.8fr 1.2fr;
+            gap: 35px;
+            padding: 0 20px;
+        }
+
+        /* --- ARTÍCULO DE VIDEOJUEGOS --- */
+        .articulo-videojuegos {
+            background-color: #ffffff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .tag-videojuegos {
+            display: inline-block;
+            background-color: #f3e8ff;
+            color: #6b21a8;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.2;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .autor-fecha {
+            font-size: 0.85rem;
+            color: #64748b;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .imagen-destacada {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .cuerpo-articulo p {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .cuerpo-articulo h2 {
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin: 30px 0 15px 0;
+        }
+
+        blockquote {
+            background-color: #f8fafc;
+            border-left: 5px solid #8b5cf6;
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #1e293b;
+            font-size: 1.1rem;
+        }
+
+        /* --- BARRA LATERAL --- */
+        aside {
+            height: fit-content;
+        }
+
+        .bloque-lateral {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .bloque-lateral h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: #0f172a;
+            border-bottom: 3px solid #8b5cf6;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .lista-beneficios {
+            list-style: none;
+        }
+
+        .lista-beneficios li {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .lista-beneficios li::before {
+            content: "🎮";
+            position: absolute;
+            left: 0;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 4px solid #0284c7;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .imagen-destacada {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <div class="fecha">Domingo, 21 de Junio de 2026</div>
+        <div class="logo">Tecno Visión Hibueras</div>
+        <div class="subtitulo">Periodismo juvenil, tecnológico e independiente</div>
+    </header>
+
+    <!-- NAVEGACIÓN (La clase 'active' ahora resalta Videojuegos) -->
+    <nav>
+        <div class="nav-container">
+            <a href="Tecno_visión_Hibueras.html">Inicio</a>
+            <a href="Inteligencia_Artificial.html">Inteligencia Artificial</a>
+            <a href="robotica.html">Robótica</a>
+            <a href="videojuegos.html" class="active">Videojuegos</a>
+            <a href="bachillerato.html">Bachillerato en Informática</a>
+        </div>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="container">
+        
+        <!-- COLUMNA IZQUIERDA: REPORTAJE DE VIDEOJUEGOS -->
+        <main class="articulo-videojuegos">
+            <span class="tag-videojuegos">Cultura Digital</span>
+            <h1>Más allá del juego: La industria de los videojuegos como motor de innovación</h1>
+            <div class="autor-fecha">Por: Equipo de Redacción de Tecno Visión &bull; Publicado el 21 de Junio de 2026</div>
+            
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1100&q=80" alt="Pantalla de videojuegos y setup informatico gamer" class="imagen-destacada">
+            
+            <div class="cuerpo-articulo">
+                <p>
+                    Los videojuegos han evolucionado de simples píxeles en movimiento a convertirse en una de las expresiones culturales y económicas más influyentes de nuestra era. Hoy en día, crear un videojuego de alto nivel requiere un despliegue informático monumental que combina programación avanzada, motores gráficos tridimensionales, inteligencia artificial y diseño narrativo interactivo.
+                </p>
+
+                <h2>El impacto técnico en el desarrollo de software</h2>
+                <p>
+                    Muchas de las tecnologías que usamos cotidianamente nacieron gracias a la exigencia técnica de los videojuegos. La necesidad de procesar gráficos realistas en tiempo real impulsó el desarrollo de las tarjetas de video modernas (GPU), las cuales hoy no solo sirven para jugar, sino que son fundamentales para entrenar modelos de Inteligencia Artificial y realizar simulaciones científicas complejas. Los videojuegos desafían constantemente los límites del hardware informático.
+                </p>
+
+                <blockquote>
+                    "Los videojuegos combinan las matemáticas puras, la lógica de programación y el arte visual para crear experiencias inmersivas que educan y conectan comunidades enteras." — Área Creativa de Tecno Visión.
+                </blockquote>
+
+                <h2>Beneficios Cognitivos y Educativos</h2>
+                <p>
+                    Contrario a los mitos antiguos, múltiples investigaciones demuestran que el juego responsable potencia habilidades mentales clave. Los videojuegos de estrategia obligan al cerebro a tomar decisiones complejas bajo presión, mejorando la lógica espacial y la resolución de problemas. En entornos educativos, las dinámicas de "gamificación" (aprender jugando) logran que conceptos matemáticos o históricos difíciles se fijen en la memoria de los estudiantes de forma mucho más duradera y entretenida.
+                </p>
+
+                <h2>El camino hacia el desarrollo profesional</h2>
+                <p>
+                    Para los estudiantes de informática, los videojuegos representan una excelente puerta de entrada al código profesional. Aprender a diseñar un juego propio introduce de lleno conceptos como la física lógica, la gestión de bases de datos para puntajes y la animación interactiva. Es una disciplina técnica apasionante que abre oportunidades laborales en programación, diseño de interfaces, control de calidad de software y animación digital.
+                </p>
+            </div>
+        </main>
+
+        <!-- COLUMNA DERECHA: RECUADROS LATERALES -->
+        <aside>
+            <div class="bloque-lateral">
+                <h3>Beneficios del Gaming</h3>
+                <ul class="lista-beneficios">
+                    <li><strong>Agilidad Mental:</strong> Mejora de los reflejos y la velocidad de toma de decisiones estratégicas.</li>
+                    <li><strong>Trabajo en Equipo:</strong> Los juegos multijugador coordinan la comunicación y el liderazgo grupal.</li>
+                    <li><strong>Inglés Técnico:</strong> Muchos títulos interactivos facilitan la familiarización con el idioma global.</li>
+                    <li><strong>Pensamiento Crítico:</strong> Resolución de rompecabezas mecánicos y lógicos complejos.</li>
+                </ul>
+            </div>
+
+            <div class="bloque-lateral">
+                <h3>El Dato Económico</h3>
+                <p style="font-size: 0.9rem; color: #475569;">
+                    La industria mundial de los videojuegos genera anualmente más ingresos económicos que las industrias del cine y la música combinadas, posicionándose como un campo laboral masivo para ingenieros y técnicos en sistemas.
+                </p>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 Tecno Visión Hibueras. Periodismo escolar, técnico e informativo. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

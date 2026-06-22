@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecno Visión Hibueras | Periodismo Tecnológico e Informático</title>
+    <style>
+        /* --- CONFIGURACIÓN GLOBAL --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #f7f9fa;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* --- CABECERA (HEADER) --- */
+        header {
+            background-color: #0f172a; /* Azul oscuro tecnológico */
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 4px solid #0284c7;
+        }
+
+        .fecha {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .subtitulo {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* --- MENÚ DE NAVEGACIÓN --- */
+        nav {
+            background-color: #1e293b;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 10px 18px;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffffff;
+            background-color: #0284c7;
+            border-radius: 4px;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 35px;
+            padding: 0 20px;
+        }
+
+        /* --- NOTICIA PRINCIPAL (HERO) --- */
+        .noticia-principal {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .noticia-principal img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .tag.bachillerato { background-color: #fef3c7; color: #d97706; }
+        .tag.robotica { background-color: #dcfce7; color: #15803d; }
+        .tag.videojuegos { background-color: #f3e8ff; color: #6b21a8; }
+
+        h1 {
+            font-size: 2.4rem;
+            line-height: 1.2;
+            margin: 15px 0;
+            color: #0f172a;
+        }
+
+        .meta {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .extracto {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 20px;
+        }
+
+        /* --- SECCIÓN LATERAL (BENEFICIOS DE LA INFORMÁTICA) --- */
+        aside {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        aside h2 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: #0f172a;
+            border-bottom: 3px solid #0284c7;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .beneficio-item {
+            margin-bottom: 20px;
+        }
+
+        .beneficio-item h4 {
+            font-size: 1rem;
+            color: #0369a1;
+            margin-bottom: 5px;
+        }
+
+        .beneficio-item p {
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        /* --- SECCIÓN INFERIOR: OTRAS CATEGORÍAS --- */
+        .seccion-secundaria {
+            grid-column: 1 / -1;
+            margin-top: 20px;
+        }
+
+        .seccion-secundaria h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .grid-reportajes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .tarjeta-contenido {
+            padding: 20px;
+        }
+
+        .tarjeta h3 {
+            font-size: 1.25rem;
+            color: #1e293b;
+            margin: 10px 0;
+            line-height: 1.4;
+        }
+
+        .tarjeta p {
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 4px solid #0284c7;
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="fecha">Domingo, 21 de Junio de 2026</div>
+        <div class="logo">Tecno Visión Hibueras</div>
+        <div class="subtitulo">Periodismo juvenil, tecnológico e independiente</div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+             <a href="Tecno_visión_Hibueras.html">Inicio</a>
+            <a href="Inteligencia_Artificial.html">Inteligencia Artificial</a>
+            <a href="robotica.html">Robótica</a>
+            <a href="videojuegos.html">Videojuegos</a>
+            <a href="bachillerato.html">Bachillerato en Informática</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <main class="noticia-principal">
+            <a href="ia.html">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80" alt="Inteligencia Artificial">
+                <br><span class="tag">Inteligencia Artificial</span>
+                <h1>¿Hacia dónde nos lleva la IA? El impacto global en la educación y el trabajo</h1>
+            </a>
+            <div class="meta">Por Redacción Tecno Visión &bull; Actualizado hace 1 hora</div>
+            <p class="extracto">
+                Analizamos cómo las nuevas herramientas de inteligencia artificial generativa están transformando las aulas de clases y redefiniendo las competencias que el mercado laboral exigirá a los futuros profesionales.
+            </p>
+        </main>
+
+        <aside>
+            <h2>Beneficios de la Informática</h2>
+            
+            <div class="beneficio-item">
+                <h4>1. Automatización Eficiente</h4>
+                <p>Permite realizar tareas repetitivas y complejas en segundos, optimizando el tiempo humano.</p>
+            </div>
+
+            <div class="beneficio-item">
+                <h4>2. Conectividad Global</h4>
+                <p>Rompe las barreras geográficas permitiendo el intercambio de información y la colaboración en tiempo real.</p>
+            </div>
+
+            <div class="beneficio-item">
+                <h4>3. Desarrollo Soluciones</h4>
+                <p>Soporta la investigación científica, el análisis de datos médicos y la creación de software para resolver problemas cotidianos.</p>
+            </div>
+        </aside>
+
+        <section class="seccion-secundaria">
+            <h2>Actualidad en Tecno Visión</h2>
+            
+            <div class="grid-reportajes">
+                
+                <article class="tarjeta">
+                    <a href="robotica.html">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500&q=80" alt="Robótica">
+                        <div class="tarjeta-contenido">
+                            <span class="tag robotica">Robótica</span>
+                            <h3>Automatización industrial: Los nuevos robots que asisten en tareas de riesgo</h3>
+                            <p>Exploramos los últimos avances en brazos robóticos y sistemas autónomos diseñados para entornos peligrosos.</p>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="tarjeta">
+                    <a href="videojuegos.html">
+                        <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=500&q=80" alt="Videojuegos">
+                        <div class="tarjeta-contenido">
+                            <span class="tag videojuegos">Videojuegos</span>
+                            <h3>La evolución de las mecánicas de juego y las narrativas interactivas</h3>
+                            <p>El arte digital y la programación se unen para crear experiencias inmersivas que están cambiando el entretenimiento.</p>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="tarjeta">
+                    <a href="bachillerato.html">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&q=80" alt="Código Informática">
+                        <div class="tarjeta-contenido">
+                            <span class="tag bachillerato">Educación</span>
+                            <h3>Bachillerato en Informática: Forjando los creadores del mañana</h3>
+                            <p>Un recorrido por el plan de estudio técnico que prepara a los estudiantes en programación, redes y soporte.</p>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Tecno Visión Hibueras. Periodismo escolar, técnico e informativo. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

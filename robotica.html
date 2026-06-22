@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robótica y Automatización | Tecno Visión Hibueras</title>
+    <style>
+        /* --- CONFIGURACIÓN GLOBAL --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #f7f9fa;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* --- CABECERA (HEADER) --- */
+        header {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 4px solid #0284c7;
+        }
+
+        .fecha {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .subtitulo {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* --- MENÚ DE NAVEGACIÓN --- */
+        nav {
+            background-color: #1e293b;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 10px 18px;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffffff;
+            background-color: #0284c7;
+            border-radius: 4px;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 2.8fr 1.2fr;
+            gap: 35px;
+            padding: 0 20px;
+        }
+
+        /* --- ARTÍCULO DE ROBÓTICA --- */
+        .articulo-robotica {
+            background-color: #ffffff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .tag-robotica {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #15803d;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.2;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .autor-fecha {
+            font-size: 0.85rem;
+            color: #64748b;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .imagen-destacada {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .cuerpo-articulo p {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .cuerpo-articulo h2 {
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin: 30px 0 15px 0;
+        }
+
+        blockquote {
+            background-color: #f8fafc;
+            border-left: 5px solid #10b981;
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #1e293b;
+            font-size: 1.1rem;
+        }
+
+        /* --- BARRA LATERAL --- */
+        aside {
+            height: fit-content;
+        }
+
+        .bloque-lateral {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .bloque-lateral h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: #0f172a;
+            border-bottom: 3px solid #15803d;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .lista-beneficios {
+            list-style: none;
+        }
+
+        .lista-beneficios li {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .lista-beneficios li::before {
+            content: "🤖";
+            position: absolute;
+            left: 0;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 4px solid #0284c7;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .imagen-destacada {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <div class="fecha">Domingo, 21 de Junio de 2026</div>
+        <div class="logo">Tecno Visión Hibueras</div>
+        <div class="subtitulo">Periodismo juvenil, tecnológico e independiente</div>
+    </header>
+
+    <!-- NAVEGACIÓN (La clase 'active' ahora resalta Robótica) -->
+    <nav>
+        <div class="nav-container">
+            <a href="Tecno_visión_Hibueras.html">Inicio</a>
+            <a href="Inteligencia_Artificial.html">Inteligencia Artificial</a>
+            <a href="robotica.html" class="active">Robótica</a>
+            <a href="videojuegos.html">Videojuegos</a>
+            <a href="bachillerato.html">Bachillerato en Informática</a>
+        </div>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="container">
+        
+        <!-- COLUMNA IZQUIERDA: REPORTAJE DE ROBÓTICA -->
+        <main class="articulo-robotica">
+            <span class="tag-robotica">Tecnología del Mañana</span>
+            <h1>Robótica y código: Los brazos mecánicos que transforman la industria moderna</h1>
+            <div class="autor-fecha">Por: Equipo de Redacción de Tecno Visión &bull; Publicado el 21 de Junio de 2026</div>
+            
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1100&q=80" alt="Brazo robótico industrial mecánico" class="imagen-destacada">
+            
+            <div class="cuerpo-articulo">
+                <p>
+                    La robótica ya no es exclusiva de las grandes fábricas automotrices. Hoy en día, la combinación de hardware mecánico con el software informático ha permitido que autómatas de todo tipo colaboren codo a codo con los seres humanos, asumiendo tareas de alta precisión o entornos de extremo peligro.
+                </p>
+
+                <h2>¿Qué es la robótica en la era de la informática?</h2>
+                <p>
+                    A diferencia de las máquinas simples, un robot moderno es un sistema informático completo con cuerpo físico. Gracias a los sensores integrados y la programación, estas máquinas pueden "percibir" su entorno, tomar decisiones lógicas en milisegundos y ejecutar acciones físicas exactas. La informática es el cerebro que da vida al metal.
+                </p>
+
+                <blockquote>
+                    "El verdadero valor de la robótica no es reemplazar el trabajo humano, sino potenciar nuestras capacidades y mantenernos a salvo en entornos de riesgo." — Sección de Ingeniería de Tecno Visión.
+                </blockquote>
+
+                <h2>Grandes Beneficios de la Automatización Robótica</h2>
+                <p>
+                    La implementación de sistemas robóticos aporta ventajas masivas a la sociedad. En la medicina, los brazos quirúrgicos permiten hacer operaciones a distancia con cortes milimétricos, reduciendo el tiempo de recuperación de los pacientes. En la agricultura, los robots automatizados monitorean los cultivos y optimizan el uso de agua, combatiendo el desperdicio de recursos de forma brillante.
+                </p>
+
+                <h2>El rol de los jóvenes en este campo</h2>
+                <p>
+                    Aprender robótica a temprana edad abre las puertas al desarrollo del pensamiento lógico y la resolución de problemas complejos. Diseñar, ensamblar y programar un pequeño robot educativo enseña física, matemáticas e informática de forma totalmente práctica, preparando a los estudiantes para los trabajos tecnológicos más demandados del futuro.
+                </p>
+            </div>
+        </main>
+
+        <!-- COLUMNA DERECHA: RECUADROS LATERALES -->
+        <aside>
+            <div class="bloque-lateral">
+                <h3>Campos de Impacto</h3>
+                <ul class="lista-beneficios">
+                    <li><strong>Medicina Quirúrgica:</strong> Operaciones de alta precisión asistidas por computadora.</li>
+                    <li><strong>Exploración Extrema:</strong> Drones y rovers enviados a volcanes, fosas marinas u otros planetas.</li>
+                    <li><strong>Logística Eficiente:</strong> Robots de almacén que organizan miles de productos por minuto.</li>
+                    <li><strong>Seguridad Industrial:</strong> Máquinas que manipulan materiales tóxicos o pesados de forma segura.</li>
+                </ul>
+            </div>
+
+            <div class="bloque-lateral">
+                <h3>¿Sabías qué?</h3>
+                <p style="font-size: 0.9rem; color: #475569;">
+                    La palabra "Robot" proviene del término checo <em>"robota"</em>, que significa trabajo forzado o tareas repetitivas. Fue usada por primera vez en una obra de teatro en 1920.
+                </p>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 Tecno Visión Hibueras. Periodismo escolar, técnico e informativo. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bachillerato en Informática | Tecno Visión Hibueras</title>
+    <style>
+        /* --- CONFIGURACIÓN GLOBAL --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #f7f9fa;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* --- CABECERA (HEADER) --- */
+        header {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 4px solid #0284c7;
+        }
+
+        .fecha {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .subtitulo {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* --- MENÚ DE NAVEGACIÓN --- */
+        nav {
+            background-color: #1e293b;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 10px 18px;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffffff;
+            background-color: #0284c7;
+            border-radius: 4px;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 2.8fr 1.2fr;
+            gap: 35px;
+            padding: 0 20px;
+        }
+
+        /* --- ARTÍCULO DE BACHILLERATO --- */
+        .articulo-bachillerato {
+            background-color: #ffffff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .tag-bachillerato {
+            display: inline-block;
+            background-color: #fef3c7;
+            color: #d97706;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            line-height: 1.2;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .autor-fecha {
+            font-size: 0.85rem;
+            color: #64748b;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .imagen-destacada {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .cuerpo-articulo p {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .cuerpo-articulo h2 {
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin: 30px 0 15px 0;
+        }
+
+        blockquote {
+            background-color: #f8fafc;
+            border-left: 5px solid #d97706;
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #1e293b;
+            font-size: 1.1rem;
+        }
+
+        /* --- BARRA LATERAL --- */
+        aside {
+            height: fit-content;
+        }
+
+        .bloque-lateral {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .bloque-lateral h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: #0f172a;
+            border-bottom: 3px solid #d97706;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .lista-beneficios {
+            list-style: none;
+        }
+
+        .lista-beneficios li {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .lista-beneficios li::before {
+            content: "💻";
+            position: absolute;
+            left: 0;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 4px solid #0284c7;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .imagen-destacada {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <div class="fecha">Domingo, 21 de Junio de 2026</div>
+        <div class="logo">Tecno Visión Hibueras</div>
+        <div class="subtitulo">Periodismo juvenil, tecnológico e independiente</div>
+    </header>
+
+    <!-- NAVEGACIÓN (La clase 'active' ahora resalta Bachillerato en Informática) -->
+    <nav>
+        <div class="nav-container">
+            <a href="Tecno_visión_Hibueras.html">Inicio</a>
+            <a href="Inteligencia_Artificial.html">Inteligencia Artificial</a>
+            <a href="robotica.html">Robótica</a>
+            <a href="videojuegos.html">Videojuegos</a>
+            <a href="bachillerato.html" class="active">Bachillerato en Informática</a>
+        </div>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="container">
+        
+        <!-- COLUMNA IZQUIERDA: REPORTAJE DE BACHILLERATO -->
+        <main class="articulo-bachillerato">
+            <span class="tag-bachillerato">Formación Técnica</span>
+            <h1>Bachillerato Técnico Profesional en Informática: El portal hacia el futuro digital</h1>
+            <div class="autor-fecha">Por: Equipo de Redacción de Tecno Visión &bull; Publicado el 21 de Junio de 2026</div>
+            
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1100&q=80" alt="Estudiante programando codigo en computadora portatil" class="imagen-destacada">
+            
+            <div class="cuerpo-articulo">
+                <p>
+                    En un mundo donde la tecnología dicta las pautas del crecimiento global, la educación técnica se ha vuelto fundamental. El Bachillerato Técnico Profesional (BTP) en Informática se posiciona como una de las carreras de nivel medio más estratégicas, atractivas y con mayor proyección, capacitando a los jóvenes no solo para consumir tecnología, sino para ser los creadores, programadores y administradores de las soluciones del mañana.
+                </p>
+
+                <h2>¿Qué aprende un estudiante de Informática?</h2>
+                <p>
+                    Lejos de limitarse al uso de programas de oficina, el plan de estudios sumerge a los estudiantes en el corazón de los sistemas informáticos. A lo largo de la formación académica, los jóvenes adquieren habilidades sólidas en lógica de programación, diseño y estructuración de sitios web, gestión de bases de datos, ensamblaje y mantenimiento de hardware, así como la configuración y aseguramiento de redes de computadoras. 
+                </p>
+
+                <blockquote>
+                    "El Bachillerato en Informática no enseña a usar herramientas existentes; dota al estudiante del pensamiento analítico necesario para inventar herramientas totalmente nuevas." — Dirección Técnica de Tecno Visión.
+                </blockquote>
+
+                <h2>Beneficios Inmediatos de la Carrera Técnica</h2>
+                <p>
+                    Uno de los mayores beneficios de esta modalidad es su doble propósito: prepara de forma brillante a los estudiantes para enfrentar carreras universitarias de ingeniería y, al mismo tiempo, les otorga un título profesional técnico que les abre las puertas del mercado laboral de manera inmediata al graduarse. Las empresas modernas buscan con urgencia jóvenes capaces de dar soporte, diseñar páginas corporativas o administrar bases de datos esenciales.
+                </p>
+
+                <h2>Desarrollo de Competencias Blandas</h2>
+                <p>
+                    Además de la parte técnica y matemática, la informática fomenta de manera natural el trabajo en equipo, la frustración positiva (aprender del error cuando un código no funciona a la primera) y la investigación autodidacta. Un programador exitoso debe mantenerse actualizado constantemente, una cualidad vital que convierte a estos graduados en profesionales proactivos, curiosos y altamente cotizados en cualquier ámbito empresarial.
+                </p>
+            </div>
+        </main>
+
+        <!-- COLUMNA DERECHA: RECUADROS LATERALES -->
+        <aside>
+            <div class="bloque-lateral">
+                <h3>Pilares de Aprendizaje</h3>
+                <ul class="lista-beneficios">
+                    <li><strong>Programación:</strong> Creación de software, scripts y soluciones lógicas estructuradas.</li>
+                    <li><strong>Diseño Web:</strong> Desarrollo de interfaces modernas utilizando HTML, CSS y arquitecturas web.</li>
+                    <li><strong>Redes y Seguridad:</strong> Conexión, cableado estructurado e interconexión segura de dispositivos.</li>
+                    <li><strong>Mantenimiento:</strong> Diagnóstico de fallas físicas y lógicas en computadoras de escritorio y servidores.</li>
+                </ul>
+            </div>
+
+            <div class="bloque-lateral">
+                <h3>Ventaja Competitiva</h3>
+                <p style="font-size: 0.9rem; color: #475569;">
+                    Un egresado en informática posee una ventaja única en la educación superior, pues la lógica algorítmica desarrollada facilita enormemente el aprendizaje de las matemáticas superiores y la ingeniería de sistemas.
+                </p>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 Tecno Visión Hibueras. Periodismo escolar, técnico e informativo. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
